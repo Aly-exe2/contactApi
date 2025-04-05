@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Email configuration - we'll update this later
+// Email configuration
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -25,7 +25,7 @@ app.post('/contact', async (req, res) => {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Sends to yourself
+      to: 'alibnraslan@gmail.com', // Sends to yourself
       subject: `New message from ${name} (Portfolio)`,
       text: `
         Name: ${name}
